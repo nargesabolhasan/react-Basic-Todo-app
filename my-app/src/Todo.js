@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
 import TodoItem from './TodoItem'
+import Radio from './Radio'
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -40,13 +41,16 @@ class TodoList extends Component {
             // console.log(data)
         })
     }
+
     //--------------------------------------------------
     render() {
         return (
             <div>
-                <span>
+                <div>
                     <Timer/>
-                </span>
+                    <Radio/>
+                </div>
+                
                 <ul>
                     <li>
                         <input type="text" placeholder={this.state.value} onChange={e => {
