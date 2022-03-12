@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Timer from './Timer';
 import TodoItem from './TodoItem'
 import Radio from './Radio'
-class TodoList extends Component {
+import Donepercent from './Donepercent'
+import Usememo from './Usememo'
+import Fibo from './Fiboandthem'
+
+class TodoList extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +15,6 @@ class TodoList extends Component {
             done: []
     
         }
-        this.list2 = ['homeWorks']
         this.addTodo = this.addTodo.bind(this)
         this.removeTodo = this.removeTodo.bind(this)
         this.addTodo = this.addTodo.bind(this)
@@ -48,9 +51,8 @@ class TodoList extends Component {
             <div>
                 <div>
                     <Timer/>
-                    <Radio/>
+
                 </div>
-                
                 <ul>
                     <li>
                         <input type="text" placeholder={this.state.value} onChange={e => {
@@ -63,9 +65,12 @@ class TodoList extends Component {
                         remove={() => this.removeTodo(todo)}
                         doneTodo={() => this.doneTodo(todo)}
                     />)}
-                    {this.list2.map(todo => <li>{todo}</li>)}
                     {this.state.done.map(d => <li>{d}</li>)}
                 </ul>
+                <Radio/>
+                <Donepercent list={this.state.list}  done={this.state.done}/>
+                <Usememo/>
+                <Fibo/>
             </div>
         )
     }

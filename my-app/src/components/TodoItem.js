@@ -1,5 +1,5 @@
-import React ,{Component} from 'react';
-export default class TodoItem extends Component {
+import React ,{PureComponent} from 'react';
+export default class TodoItem extends PureComponent {
     render() {
         return (
             <li  style={{background:'pink',color:'black',textAlign:'end',listStyle:'none',padding:'5px'}}>
